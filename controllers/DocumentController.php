@@ -13,6 +13,23 @@ use app\models\Document;
 
 class DocumentController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['logout', 'index'],
+                'rules' => [
+                    [
+                        'actions' => [],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ]
+        ];
+    }
     /**
      * {@inheritdoc}
      */
