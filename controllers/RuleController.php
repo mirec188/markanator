@@ -12,6 +12,14 @@ use app\models\ContactForm;
 
 class RuleController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+            ]
+        ];
+    }
     /**
      * {@inheritdoc}
      */

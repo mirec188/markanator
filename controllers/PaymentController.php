@@ -12,6 +12,16 @@ use app\models\ContactForm;
 
 class PaymentController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
