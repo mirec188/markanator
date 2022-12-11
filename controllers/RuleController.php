@@ -17,6 +17,13 @@ class RuleController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'actions' => [],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
             ]
         ];
     }
