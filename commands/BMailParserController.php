@@ -66,13 +66,20 @@ class BMailParserController extends Controller
                 preg_match('/decreased/', $data, $match);
                 if (isset($match[0])) {
                     $decreased = true;
+                } else {
+                    if (preg_match('/increased/', $data, $matchi)) {
+                        $decreased = false;
+                    }
                 }
                 
                 preg_match('/Transaction description: ([^\n\r]*)/', $data, $matchDescription);
                 if (isset($matchDescription[1])) {
                     $description = $matchDescription[1];
                 }
-                $this->updateBmail($bmail, $transactionAmount, $ledgerBalance, $actualBalance, $dispoBalance, $decreased, $description);
+
+                if (isset($decreased) && isset($description)) {
+                    $this->updateBmail($bmail, $transactionAmount, $ledgerBalance, $actualBalance, $dispoBalance, $decreased, $description);
+                }
             } 
 
             
