@@ -2,6 +2,9 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$params2 = require __DIR__ . '/params_config.php';
+$params = array_merge($params, $params2);
+
 
 $config = [
     'id' => 'basic-console',

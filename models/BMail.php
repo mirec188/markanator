@@ -11,5 +11,9 @@ class BMail extends ActiveRecord
         return '{{bmail}}';
     }
 
+    public function getAttachments()
+    {
+        return $this->hasMany(BMailAttachment::class, ['bmail_id' => 'id']);
+    }
 
 }

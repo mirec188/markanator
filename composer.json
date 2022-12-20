@@ -20,7 +20,8 @@
         "yiisoft/yii2-symfonymailer": "~2.0.3",
         "genkgo/camt": "^2.3",
         "ruler/ruler" : "0.4.0",
-        "google/apiclient": "^2.12"
+        "google/apiclient": "^2.12",
+        "phpmailer/phpmailer": "^6.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

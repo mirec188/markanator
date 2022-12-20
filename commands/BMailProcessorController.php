@@ -37,6 +37,7 @@ class BMailProcessorController extends Controller
             $this->process($bmail);
         }
 
+
         return ExitCode::OK;
     }
 
@@ -53,6 +54,14 @@ class BMailProcessorController extends Controller
         $bankRow->validity_date=$bmail['date'];
         $bankRow->additional_info = $bmail['trx_description'];
         $bankRow->bmail_id = $bmail['id'];
-        return $bankRow->save(false);
+        $saved = $bankRow->save(false);
+
+        if ($saved) {
+            $bmailModel = \app\models\BMail::find()->where(['id' => $bmail['id']])->one();
+            $bmailModel->processed_at = date('Y-m-d H:i:s');
+            $bmailSaved = $bmailModel->save(false);
+        }
+
+        return $saved && $bmailSaved;
     }
 }

@@ -37,3 +37,6 @@ tests/_support/_generated
 
 .bowerrc
 /config/db.php
+/config/params_config.php
+
+attachments
