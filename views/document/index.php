@@ -15,7 +15,7 @@ $baseUrl = \Yii::getAlias('@web');
         $year = date('Y');
         // get actual month
         $month = date('m');
-
+        echo $year."-".$month;
         ?>
         <option value="">all</option>
         <?php for ($y = $year; $y >= $year-2; $y--) { ?>
