@@ -38,19 +38,20 @@ $baseUrl = \Yii::getAlias('@web');
 <div class="bd-content row" style="margin-bottom:10px">
     <div class="col-4">
         <select name="period"  class="form-select">
-            <?php 
-            // get actual year
-            $year = date('Y');
-            // get actual month
-            $month = date('m');
+        <?php 
+        // get actual year
+        $year = date('Y');
+        // get actual month
+        $month = date('m');
 
-            ?>
-            <option value="">all</option>
-            <?php for ($y = $year; $y >= $year-2; $y--) { ?>
-                <?php for ($m = $month; $m >= 1; $m--) { ?>
-                    <option value="<?= $m ?>-<?=$y;?>"><?= $m."/".$y ?></option>
-                <?php } ?>
+        ?>
+        <option value="">all</option>
+        <?php for ($y = $year; $y >= $year-2; $y--) { ?>
+            <?php for ($m = 12; $m >= 1; $m--) { ?>
+                <?php if ($y == $year && $m > $month) { break; } ?>
+                <option value="<?= $m ?>-<?=$y;?>"><?= $m."/".$y ?></option>
             <?php } ?>
+        <?php } ?>
             
         </select>
     </div>
