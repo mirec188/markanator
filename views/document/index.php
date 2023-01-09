@@ -15,12 +15,11 @@ $baseUrl = \Yii::getAlias('@web');
         $year = date('Y');
         // get actual month
         $month = date('m');
-        echo $year."-".$month;
         ?>
         <option value="">all</option>
         <?php for ($y = $year; $y >= $year-2; $y--) { ?>
             <?php for ($m = 12; $m >= 1; $m--) { ?>
-                <?php if ($y == $year && $m > $month) { break; } ?>
+                <?php if ($y == $year && $m > $month) { echo $y.'--'.$m; break; } ?>
                 <option value="<?= $m ?>-<?=$y;?>"><?= $m."/".$y ?></option>
             <?php } ?>
         <?php } ?>
