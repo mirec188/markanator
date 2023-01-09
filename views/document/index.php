@@ -19,7 +19,7 @@ $baseUrl = \Yii::getAlias('@web');
         <option value="">all</option>
         <?php for ($y = $year; $y >= $year-2; $y--) { ?>
             <?php for ($m = 12; $m >= 1; $m--) { ?>
-                <?php if ($y == $year && $m > $month) { echo $y.'--'.$m; break; } ?>
+                <?php if ($y == $year && $m > $month) { continue; } ?>
                 <option value="<?= $m ?>-<?=$y;?>"><?= $m."/".$y ?></option>
             <?php } ?>
         <?php } ?>
